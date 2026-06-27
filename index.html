@@ -974,6 +974,286 @@ border:1px solid #d7dbe2; border-radius:5px;
 family:var(--mono); margin-right:4px;
 }
 
+
+/* 
+
+============================================================
+   CEO ADVANCED DRILLDOWN - ENHANCED STYLES
+   
+
+============================================================ 
+
+*/
+/* Notification bell */
+.notif-bell-wrap {
+  position:relative; cursor:pointer; display:inline-flex; 
+
+align-items:center;
+}
+.notif-bell-wrap svg { width:22px; height:22px; fill:var(--
+
+gold); transition:.2s; }
+.notif-bell-wrap:hover svg { fill:#fff; }
+.notif-badge {
+  position:absolute; top:-5px; right:-6px; background:var(--
+
+bad); color:#fff;
+  font-size:9px; font-weight:900; border-radius:50%; 
+
+width:16px; height:16px;
+  display:flex; align-items:center; justify-content:center; 
+
+font-family:var(--mono);
+  border:1.5px solid var(--ink); animation:pulse-notif 2s 
+
+infinite;
+}
+@keyframes pulse-notif {
+  0%,100%{box-shadow:0 0 0 0 rgba(190,18,60,.5)}
+  50%{box-shadow:0 0 0 5px rgba(190,18,60,0)}
+}
+.notif-dropdown {
+  position:absolute; top:34px; right:0; width:320px; 
+
+background:var(--paper);
+  border-radius:var(--radius-md); box-shadow:0 20px 40px -10px 
+
+rgba(0,0,0,.4);
+  border:1.5px solid var(--gold); z-index:9999; display:none; 
+
+overflow:hidden;
+}
+.notif-dropdown.open { display:block; }
+.notif-header {
+  background:linear-gradient(90deg,var(--gold),var(--gold-
+
+deep)); padding:10px 14px;
+  font-weight:800; font-size:12px; color:#241a06; letter-
+
+spacing:.3px;
+  display:flex; justify-content:space-between; align-
+
+items:center;
+}
+.notif-item {
+  padding:10px 14px; border-bottom:1px solid #eef1f7; font-
+
+size:12px; font-weight:600;
+  color:var(--ink); line-height:1.4; display:flex; gap:10px; 
+
+align-items:flex-start;
+}
+.notif-item:last-child { border-bottom:none; }
+.notif-dot { width:8px; height:8px; border-radius:50%; flex-
+
+shrink:0; margin-top:4px; }
+.notif-dot.critical { background:var(--bad); }
+.notif-dot.warn { background:var(--gold); }
+.notif-dot.info { background:var(--monthly-color); }
+
+/* All Branches drilldown tab */
+#ceoBranchesView { display:none; }
+#ceoBranchesView.active { display:block; }
+#ceoMainView { display:block; }
+#ceoMainView.hidden { display:none; }
+
+/* Back/Home button bar */
+.ceo-nav-bar {
+  display:flex; align-items:center; gap:10px; margin-
+
+bottom:16px; flex-wrap:wrap;
+}
+.btn-ceo-back, .btn-ceo-home {
+  display:inline-flex; align-items:center; gap:6px; 
+
+padding:9px 16px;
+  border-radius:var(--radius-sm); border:none; cursor:pointer; 
+
+font-weight:800;
+  font-size:12px; text-transform:uppercase; letter-
+
+spacing:.3px; transition:.15s;
+}
+.btn-ceo-back {
+  background:#1b2436; color:var(--gold); border:1px solid var
+
+(--gold-deep);
+}
+.btn-ceo-back:hover { background:#243049; }
+.btn-ceo-home {
+  background:linear-gradient(180deg,var(--gold),var(--gold-
+
+deep)); color:#241a06;
+}
+.btn-ceo-home:hover { filter:brightness(1.08); }
+.ceo-breadcrumb {
+  font-family:var(--mono); font-size:11px; letter-
+
+spacing:.4px; color:var(--gold-deep);
+  font-weight:700; flex:1;
+}
+
+/* Branch selector cards */
+.branch-select-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax
+
+(200px, 1fr)); gap:14px;
+  margin-bottom:20px;
+}
+.branch-select-card {
+  border:1.5px solid var(--ink); border-radius:var(--radius-
+
+md); padding:20px 16px;
+  background:linear-gradient(180deg,#fff,#f7f8fa); 
+
+cursor:pointer; transition:.2s;
+  text-align:center; position:relative; overflow:hidden;
+}
+.branch-select-card::before {
+  content:""; position:absolute; top:0; left:0; right:0; 
+
+height:4px;
+}
+.branch-select-card:nth-child(1)::before { background:linear-
+
+gradient(90deg,#d04ee8,var(--sub-color)); }
+.branch-select-card:nth-child(2)::before { background:linear-
+
+gradient(90deg,#3b82f6,var(--fb-color)); }
+.branch-select-card:nth-child(3)::before { background:linear-
+
+gradient(90deg,#22c55e,var(--groc-color)); }
+.branch-select-card:nth-child(4)::before { background:linear-
+
+gradient(90deg,#f59e0b,#c2540a); }
+.branch-select-card:nth-child(5)::before { background:linear-
+
+gradient(90deg,#1456b8,#1b2436); }
+.branch-select-card:hover { transform:translateY(-3px); box-
+
+shadow:0 10px 24px -8px rgba(0,0,0,.2); border-color:var(--
+
+gold); }
+.branch-select-card .bsc-icon { font-size:30px; margin-
+
+bottom:8px; }
+.branch-select-card .bsc-name { font-weight:800; font-
+
+size:15px; color:var(--ink); margin-bottom:4px; }
+.branch-select-card .bsc-count { font-size:11px; font-
+
+weight:700; color:var(--muted); }
+.branch-select-card .bsc-badge {
+  display:inline-block; margin-top:8px; padding:3px 10px; 
+
+border-radius:50px;
+  font-size:9.5px; font-weight:800; text-transform:uppercase; 
+
+letter-spacing:.4px;
+}
+.bsc-badge.critical { background:#fde2e7; color:var(--bad); }
+.bsc-badge.good { background:#d6f3e3; color:var(--good); }
+.bsc-badge.warn { background:#fef3c7; color:#92400e; }
+
+/* Category cards for branch drilldown */
+.cat-card-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax
+
+(160px, 1fr)); gap:12px;
+  margin-bottom:20px;
+}
+.cat-card {
+  border:1.5px solid var(--ink); border-radius:var(--radius-
+
+md); padding:16px 12px;
+  background:linear-gradient(180deg,#fff,#f7f8fa); 
+
+cursor:pointer; transition:.2s;
+  text-align:center; position:relative; overflow:hidden;
+}
+.cat-card:hover { transform:translateY(-2px); box-shadow:0 8px 
+
+20px -6px rgba(0,0,0,.18); }
+.cat-card::before {
+  content:""; position:absolute; top:0; left:0; right:0; 
+
+height:3px;
+}
+.cat-card.cat-monthly::before { background:var(--monthly-
+
+color); }
+.cat-card.cat-major::before { background:var(--major-color); }
+.cat-card.cat-staff::before { background:var(--staff-color); }
+.cat-card.cat-price::before { background:var(--price-color); }
+.cat-card.cat-demand::before { background:var(--demand-color); 
+
+}
+.cat-card.cat-fresho::before { background:var(--fresh-color); 
+
+}
+.cat-card.cat-maint::before { background:var(--maint-color); }
+.cat-card.cat-cust::before { background:var(--cust-color); }
+.cat-card.cat-bill::before { background:var(--bill-color); }
+.cat-card .cc-icon { font-size:24px; margin-bottom:6px; }
+.cat-card .cc-name { font-weight:800; font-size:12.5px; 
+
+color:var(--ink); margin-bottom:4px; }
+.cat-card .cc-count {
+  font-size:22px; font-weight:900; font-family:var(--serif); 
+
+color:var(--ink);
+}
+.cat-card:hover .cc-count { color:var(--gold-deep); }
+
+/* Drilldown complaint table */
+#ceoDrillTable { width:100%; border-collapse:collapse; 
+
+margin-bottom:20px; border:1.5px solid var(--ink); }
+#ceoDrillTable th {
+  background:var(--ink); color:#fff; padding:10px 8px; font-
+
+size:10.5px;
+  text-align:left; font-weight:800; letter-spacing:.3px; 
+
+text-transform:uppercase;
+}
+#ceoDrillTable td {
+  padding:9px 8px; border:1px solid #d7dbe2; font-size:12.5px; 
+
+font-weight:600;
+  word-wrap:break-word; line-height:1.4; color:#1c2538;
+}
+#ceoDrillTable tbody tr:nth-child(even) { background:#f8f9fb; 
+
+}
+
+/* Responsive CEO */
+@media (max-width:640px) {
+  .exec-kpi-grid { grid-template-columns:repeat(2,1fr)!
+
+important; }
+  .exec-grid-2 { grid-template-columns:1fr!important; }
+  .branch-select-grid { grid-template-columns:1fr 1fr!
+
+important; }
+  .cat-card-grid { grid-template-columns:repeat(2,1fr)!
+
+important; }
+  .ceo-nav-bar { gap:6px; }
+  .btn-ceo-back,.btn-ceo-home { font-size:11px; padding:8px 
+
+12px; }
+  .exec-hero { flex-direction:column; }
+  .exec-score-ring { align-self:flex-start; }
+  .tab-btn { padding:9px 14px; font-size:12px; }
+  .exec-kpi div { font-size:17px!important; }
+  .branch-select-card .bsc-icon { font-size:24px; }
+}
+@media (max-width:420px) {
+  .branch-select-grid { grid-template-columns:1fr!important; }
+  .cat-card-grid { grid-template-columns:1fr 1fr!important; }
+}
+
 /* ---------- Print ---------- */
 @media print{
   body{ background:#fff; padding:0; }
@@ -1361,6 +1641,30 @@ id="roleBadgeCeo"><span class="dot"></span> CEO Access
 id="exportSnapBtn" onclick="openSnapshotModal()">&#128230; 
 
 Lock Data Into Code</button>
+    <div class="notif-bell-wrap" onclick="toggleNotifDropdown
+
+()" id="notifBellWrap">
+      <svg viewBox="0 0 24 24" 
+
+xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-
+
+1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-
+
+5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 
+
+.538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 
+
+0H9"/></svg>
+      <span class="notif-badge" id="notifCount">0</span>
+      <div class="notif-dropdown" id="notifDropdown">
+        <div class="notif-header"><span>🔔 Live 
+
+Alerts</span><span id="notifTimestamp" style="font-size:10px; 
+
+opacity:.8;"></span></div>
+        <div id="notifList"></div>
+      </div>
+    </div>
     <button class="btn-logout" onclick="logoutUser
 
 ()">Logout</button>
@@ -1399,6 +1703,11 @@ Overview</button>
 onclick="openTab(event, 'tabSubComplaints')">Sub 
 
 Complaints</button>
+    <button class="tab-btn exec-tab-btn" 
+
+onclick="openCeoBranches()" id="btnCeoBranches">🏢 All Branches 
+
+Details</button>
     <button class="tab-btn admin-only-tab" 
 
 style="background:linear-gradient(180deg,#3b82f6,var(--fb-
@@ -1695,6 +2004,228 @@ id="execInsightBanner"></div>
         <div class="footer-line">Executive Summary &middot; 
 
 Auto-Generated &middot; Feedback Intelligence Suite</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 
+
+============================================================
+       CEO ALL BRANCHES DETAILS  full drilldown panel
+       
+
+============================================================ 
+
+-->
+  <div id="ceoBranchesPanel" style="display:none;">
+    <!-- Main branch selector view -->
+    <div id="ceoBranchMainView">
+      <div class="ceo-nav-bar">
+        <button class="btn-ceo-home" 
+
+onclick="closeCeoBranches()">🏠 CEO Overview</button>
+        <span class="ceo-breadcrumb">📊 All Branches 
+
+Details</span>
+      </div>
+      <div class="admin-panel exec-panel" style="margin-
+
+bottom:14px; border-top:none;">
+        <div class="console-head">
+          <span class="tag" style="background:linear-gradient
+
+(180deg,var(--gold),var(--gold-deep)); color:#241a06;">Multi-
+
+Branch</span>
+          <h2>All Branches — Complaint Intelligence</h2>
+        </div>
+        <p style="color:var(--muted); font-size:13px; font-
+
+weight:600; line-height:1.6; margin:0 0 6px;">
+          Tap any branch to drill down into its complaint 
+
+categories, then tap a category to see the full complaint 
+
+list.
+        </p>
+      </div>
+      <div class="branch-select-grid" 
+
+id="branchSelectorGrid"></div>
+    </div>
+
+    <!-- Branch category view -->
+    <div id="ceoBranchCatView" style="display:none;">
+      <div class="ceo-nav-bar">
+        <button class="btn-ceo-back" 
+
+onclick="showBranchSelector()">← Back</button>
+        <button class="btn-ceo-home" 
+
+onclick="closeCeoBranches()">🏠 CEO Overview</button>
+        <span class="ceo-breadcrumb" 
+
+id="catViewBreadcrumb">Branch → Categories</span>
+      </div>
+      <div class="admin-panel exec-panel" style="margin-
+
+bottom:14px; border-top:none;">
+        <div class="console-head">
+          <span class="tag" id="catViewBranchTag" 
+
+style="background:linear-gradient(180deg,var(--gold),var(--
+
+gold-deep)); color:#241a06;">Branch</span>
+          <h2 id="catViewTitle">Select a Category</h2>
+        </div>
+        <div id="catViewSummaryStrip" class="meta-
+
+strip"></div>
+      </div>
+      <div class="cat-card-grid" id="catCardGrid"></div>
+    </div>
+
+    <!-- Complaint detail view -->
+    <div id="ceoBranchDrillView" style="display:none;">
+      <div class="ceo-nav-bar">
+        <button class="btn-ceo-back" onclick="showCatView()">← 
+
+Back</button>
+        <button class="btn-ceo-home" 
+
+onclick="closeCeoBranches()">🏠 CEO Overview</button>
+        <span class="ceo-breadcrumb" 
+
+id="drillBreadcrumb">Branch → Category → Complaints</span>
+      </div>
+      <div class="admin-panel exec-panel" style="margin-
+
+bottom:14px; border-top:none;">
+        <div class="console-head">
+          <span class="tag" id="drillTag" 
+
+style="background:var(--gold); 
+
+color:#241a06;">Complaints</span>
+          <h2 id="drillTitle">All Complaints</h2>
+        </div>
+        <div id="drillSummaryStrip" class="meta-strip"></div>
+      </div>
+      <div class="report-preview-area exec-area" 
+
+style="margin-top:0;">
+        <div class="watermark"><span 
+
+id="drillWatermark">COMPLAINTS</span></div>
+        <div class="doc-inner">
+          <div id="drillTableWrap">
+            <table id="ceoDrillTable">
+              <thead>
+                <tr>
+                  <th style="width:13%;">Date</th>
+                  <th style="width:34%;">Product / Issue</th>
+                  <th style="width:8%; text-
+
+align:center;">Qty</th>
+                  <th style="width:45%;">Reason</th>
+                </tr>
+              </thead>
+              <tbody id="ceoDrillTableBody"></tbody>
+            </table>
+            <div id="ceoDrillEmpty" class="empty-state 
+
+hidden">
+              <div class="big">✅</div>No complaints logged in 
+
+this category for the selected period.
+            </div>
+          </div>
+          <div class="count-footer-wrapper">
+            <span id="drillTotalLabel" style="font-weight:800; 
+
+font-size:13px;">Total: 0 complaints</span>
+            <span class="days-counter-badge" 
+
+id="drillDaysLabel">0 DAYS DATA</span>
+          </div>
+          <div class="footer-line">CEO Complaint Detail View · 
+
+Read-Only · Feedback Intelligence Suite</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Facebook tab within branches -->
+    <div id="ceoBranchFbView" style="display:none;">
+      <div class="ceo-nav-bar">
+        <button class="btn-ceo-back" 
+
+onclick="showBranchSelector()">← Back</button>
+        <button class="btn-ceo-home" 
+
+onclick="closeCeoBranches()">🏠 CEO Overview</button>
+        <span class="ceo-breadcrumb">All Branches → Facebook 
+
+Page Status</span>
+      </div>
+      <div class="admin-panel exec-panel" style="margin-
+
+bottom:14px; border-top:none;">
+        <div class="console-head">
+          <span class="tag" style="background:var(--fb-color); 
+
+color:#fff;">Social</span>
+          <h2>Facebook Price List Status</h2>
+        </div>
+      </div>
+      <div class="exec-grid-2">
+        <div class="exec-card">
+          <h3>📘 MPK Page</h3>
+          <div class="analytics-grid" style="grid-template-
+
+columns:1fr 1fr; margin-bottom:14px;">
+            <div class="stat-card" style="border-color:var(--
+
+monthly-color);"><small>Uploaded</small><div id="ceoMpkUp" 
+
+style="color:var(--monthly-color);">0</div></div>
+            <div class="stat-card" style="border-color:var(--
+
+bad);"><small>Unuploaded</small><div id="ceoMpkDown" 
+
+style="color:var(--bad);">0</div></div>
+          </div>
+          <table class="main-table" style="margin-bottom:0;">
+            
+
+<thead><tr><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="ceoMpkBody"></tbody>
+          </table>
+        </div>
+        <div class="exec-card">
+          <h3>📘 HYD Page</h3>
+          <div class="analytics-grid" style="grid-template-
+
+columns:1fr 1fr; margin-bottom:14px;">
+            <div class="stat-card" style="border-color:var(--
+
+monthly-color);"><small>Uploaded</small><div id="ceoHydUp" 
+
+style="color:var(--monthly-color);">0</div></div>
+            <div class="stat-card" style="border-color:var(--
+
+bad);"><small>Unuploaded</small><div id="ceoHydDown" 
+
+style="color:var(--bad);">0</div></div>
+          </div>
+          <table class="main-table" style="margin-bottom:0;">
+            
+
+<thead><tr><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="ceoHydBody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -2185,6 +2716,52 @@ style="width:15%; text-align:center;">Del</th></tr></thead>
 /* 
 
 ============================================================
+   BAKED DATA - Auto-generated snapshot (update via Lock Data 
+
+Into Code)
+   Paste the output of "Lock Data Into Code" here to update.
+   
+
+============================================================ 
+
+*/
+window.__BAKED_BRANCH_DATA__ = {"tab1":{"monthly":[],"major":
+
+[],"demand":[],"price":[],"cust":[],"staff":[],"grocery":
+
+[],"fresho":[],"bill":[],"maint":[]},"tab2":{"monthly":
+
+[],"major":[],"demand":[],"price":[],"cust":[],"staff":
+
+[],"grocery":[],"fresho":[],"bill":[],"maint":[]},"tab3":
+
+{"monthly":[],"major":[],"demand":[],"price":[],"cust":
+
+[],"staff":[],"grocery":[],"fresho":[],"bill":[],"maint":
+
+[]},"tab4":{"monthly":[],"major":[],"demand":[],"price":
+
+[],"cust":[],"staff":[],"grocery":[],"fresho":[],"bill":
+
+[],"maint":[]}};
+window.__BAKED_FB_DATA__ = {"mpk":[],"hyd":[]};
+/* 
+  HOW TO UPDATE:
+  1. Login as Admin
+  2. Enter your branch data
+  3. Click "Lock Data Into Code" button  
+  4. Copy the generated code
+  5. Replace the window.__BAKED_BRANCH_DATA__ and 
+
+window.__BAKED_FB_DATA__ lines above
+  6. Redeploy to GitHub/Netlify
+*/
+</script>
+
+<script>
+/* 
+
+============================================================
    AUTH / ROLE ACCESS
    - "admin" login (username+password) -> full data-entry 
 
@@ -2219,18 +2796,13 @@ latest
 ------------------------------------------------------------ 
 
 */
-const DEFAULT_BRANCH_DATA = {
-    // tab1: { monthly:[], major:[], demand:[], price:[], 
+/* BAKED DATA - Generated by Lock Data Into Code button */
+const DEFAULT_BRANCH_DATA = window.__BAKED_BRANCH_DATA__ || 
 
-cust:[], staff:[], grocery:[], fresho:[], bill:[], maint:[] },
-    // tab2: { ... }, tab3: { ... }, tab4: { ... }
-};
-const DEFAULT_FB_DATA = {
-    // mpk: [ { rawDateValue, date, month, city, status } , 
+{};
+const DEFAULT_FB_DATA = window.__BAKED_FB_DATA__ || { mpk:[], 
 
-... ],
-    // hyd: [ ... ]
-};
+hyd:[] };
 
 function toggleStaffLoginForm() {
     document.getElementById
@@ -2305,6 +2877,7 @@ btn')].forEach(b => b.classList.remove('active'));
 ('active');
     }
     renderExecOverview();
+    setTimeout(buildNotifications, 500);
 }
 
 function logoutUser() {
@@ -2341,11 +2914,13 @@ function generateSnapshotCode() {
         mpk: getFbData('mpk'),
         hyd: getFbData('hyd')
     };
-    return `const DEFAULT_BRANCH_DATA = ${JSON.stringify
+    return `/* Paste this into index.html inside the baked 
 
-(branchSnapshot, null, 2)};\n\nconst DEFAULT_FB_DATA = 
+data <script> tag */\nwindow.__BAKED_BRANCH_DATA__ = 
 
-${JSON.stringify(fbSnapshot, null, 2)};`;
+${JSON.stringify(branchSnapshot)};\nwindow.__BAKED_FB_DATA__ = 
+
+${JSON.stringify(fbSnapshot)};`;
 }
 
 function openSnapshotModal() {
@@ -2400,6 +2975,9 @@ function loadBranchFromLocalStorage(branchId) {
     const saved = localStorage.getItem(STORAGE_VERSION + 
 
 branchId);
+    const bakedData = (window.__BAKED_BRANCH_DATA__ || {})
+
+[branchId];
     const defaultCategories = {
         monthly: [], major: [], demand: [], price: [], cust: 
 
@@ -2409,16 +2987,37 @@ branchId);
         try {
             const parsed = JSON.parse(saved);
             for (let key in defaultCategories) {
-                if (!parsed[key]) parsed[key] = [];
+                if (!globalDataStore[branchId]) 
+
+globalDataStore[branchId] = {};
+                globalDataStore[branchId][key] = parsed[key] 
+
+|| defaultCategories[key];
             }
-            globalDataStore[branchId] = parsed;
-        } catch(e) { globalDataStore[branchId] = 
+            return;
+        } catch(e) {}
+    }
+    // Fall back to baked-in data (for CEO/fresh devices)
+    if (bakedData) {
+        globalDataStore[branchId] = {};
+        for (let key in defaultCategories) {
+            globalDataStore[branchId][key] = bakedData[key] || 
 
-seedBranchDefaults(branchId, defaultCategories); }
+defaultCategories[key];
+        }
+        return;
+    }
+    // Fall back to DEFAULT_BRANCH_DATA constant
+    const seed = DEFAULT_BRANCH_DATA[branchId];
+    if (seed) {
+        globalDataStore[branchId] = {};
+        for (let key in defaultCategories) {
+            globalDataStore[branchId][key] = seed[key] || 
+
+defaultCategories[key];
+        }
     } else {
-        globalDataStore[branchId] = seedBranchDefaults
-
-(branchId, defaultCategories);
+        initStoreForBranch(branchId);
     }
 }
 
@@ -2435,13 +3034,19 @@ function seedBranchDefaults(branchId, defaultCategories) {
 }
 
 function getFbData(pageType) {
-    const raw = localStorage.getItem(`fb_${pageType}_data`);
-    if (raw !== null) {
-        try { return JSON.parse(raw); } catch(e) { /* fall 
+    const saved = localStorage.getItem('fb_' + pageType + 
 
-through to default */ }
+'_data');
+    if (saved) {
+        try { return JSON.parse(saved); } catch(e) {}
     }
-    return (DEFAULT_FB_DATA[pageType] || []).slice();
+    // Fall back to baked data
+    const baked = (window.__BAKED_FB_DATA__ || {})[pageType];
+    if (baked && baked.length) return baked;
+    // Fall back to DEFAULT_FB_DATA constant
+    const seed = DEFAULT_FB_DATA[pageType];
+    if (seed && seed.length) return seed;
+    return [];
 }
 
 function initStoreForBranch(branchId) {
@@ -5357,6 +5962,471 @@ best-performing branch with the fewest logged complaints.`;
         }
     }
 }
+
+
+/* 
+
+============================================================
+   CEO ALL BRANCHES DRILLDOWN  + NOTIFICATIONS
+   
+
+============================================================ 
+
+*/
+
+let ceoBranchCurrentTab = null;  // 'tab1'..'tab4' or 'fb'
+let ceoCurrentCat = null;        // e.g. 
+
+'monthly','major','staff', etc.
+
+const BRANCH_NAMES = { tab1:'Branch 1', tab2:'Branch 2', 
+
+tab3:'Branch 3', tab4:'Branch 4' };
+const BRANCH_COLORS = { tab1:'#d04ee8', tab2:'#3b82f6', 
+
+tab3:'#22c55e', tab4:'#f59e0b' };
+
+const CAT_META = {
+  monthly:  { icon:'📋', label:'Monthly Complaints',       
+
+cls:'cat-monthly',  color:'var(--monthly-color)' },
+  major:    { icon:'🚨', label:'Major Complaints',         
+
+cls:'cat-major',    color:'var(--major-color)' },
+  staff:    { icon:'👥', label:'Staff Complaints',         
+
+cls:'cat-staff',    color:'var(--staff-color)' },
+  price:    { icon:'💰', label:'Price Tags Issues',        
+
+cls:'cat-price',    color:'var(--price-color)' },
+  demand:   { icon:'📦', label:'Demand & Stock Short',     
+
+cls:'cat-demand',   color:'var(--demand-color)' },
+  fresho:   { icon:'🥦', label:'Fresho Complaints',        
+
+cls:'cat-fresho',   color:'var(--fresh-color)' },
+  maint:    { icon:'🔧', label:'Maintenance Complaints',   
+
+cls:'cat-maint',    color:'var(--maint-color)' },
+  cust:     { icon:'😊', label:'Customer Satisfaction',    
+
+cls:'cat-cust',     color:'var(--cust-color)' },
+  bill:     { icon:'🧾', label:'Billing Complaints',       
+
+cls:'cat-bill',     color:'var(--bill-color)' },
+};
+
+function openCeoBranches() {
+  // Hide main CEO area, show branches panel
+  document.getElementById('tabExec').style.display = 'none';
+  document.getElementById('ceoBranchesPanel').style.display = 
+
+'block';
+  showBranchSelector();
+  renderCeoBranchSelector();
+}
+
+function closeCeoBranches() {
+  document.getElementById('ceoBranchesPanel').style.display = 
+
+'none';
+  document.getElementById('tabExec').style.display = 'block';
+  // Deactivate the branches tab button highlight
+  document.querySelectorAll('.tab-btn').forEach(b => 
+
+b.classList.remove('active'));
+  document.querySelector('.exec-tab-btn').classList.add
+
+('active');
+}
+
+function showBranchSelector() {
+  document.getElementById('ceoBranchMainView').style.display = 
+
+'block';
+  document.getElementById('ceoBranchCatView').style.display = 
+
+'none';
+  document.getElementById('ceoBranchDrillView').style.display 
+
+= 'none';
+  document.getElementById('ceoBranchFbView').style.display = 
+
+'none';
+  renderCeoBranchSelector();
+}
+
+function showCatView() {
+  document.getElementById('ceoBranchMainView').style.display = 
+
+'none';
+  document.getElementById('ceoBranchCatView').style.display = 
+
+'block';
+  document.getElementById('ceoBranchDrillView').style.display 
+
+= 'none';
+  document.getElementById('ceoBranchFbView').style.display = 
+
+'none';
+}
+
+function renderCeoBranchSelector() {
+  const grid = document.getElementById('branchSelectorGrid');
+  if (!grid) return;
+  const tabs = ['tab1','tab2','tab3','tab4'];
+  tabs.forEach(initStoreForBranch);
+
+  const cards = tabs.map((id, i) => {
+    const store = globalDataStore[id] || {};
+    const total = (store.monthly || []).reduce((s, e) => s + 
+
+(e.qty||0), 0);
+    const major = (store.major || []).reduce((s, e) => s + 
+
+(e.qty||0), 0);
+    const bNum = i + 1;
+    const badge = major > 10 ? '<span class="bsc-badge 
+
+critical">⚠ High Issues</span>'
+                : major > 5  ? '<span class="bsc-badge warn">⚡ 
+
+Monitor</span>'
+                : '<span class="bsc-badge good">✓ 
+
+Stable</span>';
+    return `<div class="branch-select-card" 
+
+onclick="ceoDrillBranch('${id}')">
+      <div class="bsc-icon">🏪</div>
+      <div class="bsc-name">Branch ${bNum}</div>
+      <div class="bsc-count">${total} total · ${major} 
+
+major</div>
+      ${badge}
+    </div>`;
+  });
+
+  // Facebook card
+  const mpkData = getFbData('mpk');
+  const hydData = getFbData('hyd');
+  const fbUnup = [...mpkData, ...hydData].filter(d => d.status 
+
+=== 'Unuploaded').length;
+  const fbBadge = fbUnup > 0
+    ? `<span class="bsc-badge critical">⚠ ${fbUnup} 
+
+Unuploaded</span>`
+    : `<span class="bsc-badge good">✓ All Uploaded</span>`;
+  cards.push(`<div class="branch-select-card" 
+
+onclick="ceoDrillFacebook()">
+    <div class="bsc-icon">📘</div>
+    <div class="bsc-name">Facebook Page</div>
+    <div class="bsc-count">${mpkData.length + hydData.length} 
+
+total entries</div>
+    ${fbBadge}
+  </div>`);
+
+  grid.innerHTML = cards.join('');
+}
+
+function ceoDrillBranch(tabId) {
+  ceoBranchCurrentTab = tabId;
+  const bNum = getBranchNum(tabId);
+  const bName = BRANCH_NAMES[tabId] || ('Branch ' + bNum);
+  initStoreForBranch(tabId);
+  const store = globalDataStore[tabId] || {};
+
+  // Show category view
+  document.getElementById('ceoBranchMainView').style.display = 
+
+'none';
+  document.getElementById('ceoBranchCatView').style.display = 
+
+'block';
+
+  document.getElementById('catViewBranchTag').innerText = 
+
+bName;
+  document.getElementById('catViewTitle').innerText = bName + 
+
+' — Select a Complaint Category';
+  document.getElementById('catViewBreadcrumb').innerText = 
+
+'All Branches → ' + bName;
+
+  // Summary strip
+  const total = (store.monthly || []).reduce((s,e) => s + 
+
+(e.qty||0), 0);
+  const major = (store.major || []).reduce((s,e) => s + 
+
+(e.qty||0), 0);
+  const days = new Set((store.monthly||[]).map
+
+(e=>e.date)).size;
+  document.getElementById('catViewSummaryStrip').innerHTML = `
+    <span class="meta-pill"><span>Total</span><b>${total}
+
+</b></span>
+    <span class="meta-pill"><span>Major</span><b 
+
+style="color:#ff9aab;">${major}</b></span>
+    <span class="meta-pill"><span>Days Logged</span><b>
+
+${days}</b></span>
+    <span class="meta-pill"><span>Branch</span><b>${bName}
+
+</b></span>`;
+
+  // Category cards
+  const grid = document.getElementById('catCardGrid');
+  const catOrder = 
+
+['monthly','major','staff','price','demand','fresho','maint','
+
+cust','bill'];
+  grid.innerHTML = catOrder.map(cat => {
+    const meta = CAT_META[cat];
+    const items = store[cat] || [];
+    const total = items.reduce((s,e) => s + (e.qty||0), 0);
+    return `<div class="cat-card ${meta.cls}" 
+
+onclick="ceoDrillCategory('${tabId}','${cat}')">
+      <div class="cc-icon">${meta.icon}</div>
+      <div class="cc-name">${meta.label}</div>
+      <div class="cc-count" style="color:${meta.color};">
+
+${total}</div>
+    </div>`;
+  }).join('');
+}
+
+function ceoDrillCategory(tabId, cat) {
+  ceoBranchCurrentTab = tabId;
+  ceoCurrentCat = cat;
+  const bName = BRANCH_NAMES[tabId] || ('Branch ' + 
+
+getBranchNum(tabId));
+  const meta = CAT_META[cat];
+  initStoreForBranch(tabId);
+  const store = globalDataStore[tabId] || {};
+  const items = (store[cat] || []).slice().sort((a,b) => 
+
+parseCustomDate(a.date) - parseCustomDate(b.date));
+
+  // Switch to drill view
+  document.getElementById('ceoBranchCatView').style.display = 
+
+'none';
+  document.getElementById('ceoBranchDrillView').style.display 
+
+= 'block';
+
+  document.getElementById('drillTag').innerText = meta.icon + 
+
+' ' + meta.label;
+  document.getElementById('drillTag').style.background = 
+
+meta.color;
+  document.getElementById('drillTag').style.color = '#fff';
+  document.getElementById('drillTitle').innerText = bName + ' 
+
+· ' + meta.label;
+  document.getElementById('drillBreadcrumb').innerText = 'All 
+
+Branches → ' + bName + ' → ' + meta.label;
+  document.getElementById('drillWatermark').innerText = 
+
+meta.label.toUpperCase();
+
+  const total = items.reduce((s,e) => s+(e.qty||0), 0);
+  const uniqueDates = new Set(items.map(e=>e.date)).size;
+  document.getElementById('drillSummaryStrip').innerHTML = `
+    <span class="meta-pill"><span>Category</span><b>
+
+${meta.label}</b></span>
+    <span class="meta-pill"><span>Total Qty</span><b>${total}
+
+</b></span>
+    <span class="meta-pill"><span>Days</span><b>
+
+${uniqueDates}</b></span>`;
+
+  document.getElementById('drillTotalLabel').innerText = 
+
+'Total: ' + total + ' complaints';
+  document.getElementById('drillDaysLabel').innerText = 
+
+uniqueDates + ' DAYS DATA';
+
+  const tbody = document.getElementById('ceoDrillTableBody');
+  const empty = document.getElementById('ceoDrillEmpty');
+  tbody.innerHTML = '';
+  if (items.length === 0) {
+    empty.classList.remove('hidden');
+  } else {
+    empty.classList.add('hidden');
+    tbody.innerHTML = items.map(item => `<tr>
+      <td><span class="date-badge">${item.date||'—'}
+
+</span></td>
+      <td style="font-weight:800;">${item.product||'—'}</td>
+      <td style="text-align:center; font-weight:900; 
+
+color:var(--gold-deep);">${item.qty||0}</td>
+      <td>${item.reason||'—'}</td>
+    </tr>`).join('');
+  }
+}
+
+function ceoDrillFacebook() {
+  document.getElementById('ceoBranchMainView').style.display = 
+
+'none';
+  document.getElementById('ceoBranchFbView').style.display = 
+
+'block';
+
+  const mpk = getFbData('mpk').sort((a,b) => new Date
+
+(a.rawDateValue) - new Date(b.rawDateValue));
+  const hyd = getFbData('hyd').sort((a,b) => new Date
+
+(a.rawDateValue) - new Date(b.rawDateValue));
+
+  let mpkUp=0, mpkDown=0, hydUp=0, hydDown=0;
+  const mpkRows = mpk.map(d => {
+    if(d.status==='Uploaded') mpkUp++; else mpkDown++;
+    const cls = d.status==='Uploaded' ? 'color:var(--good)' : 
+
+'color:var(--bad)';
+    return `<tr><td>${d.date}</td><td style="font-weight:800;
+
+${cls}">${d.status}</td></tr>`;
+  }).join('');
+  const hydRows = hyd.map(d => {
+    if(d.status==='Uploaded') hydUp++; else hydDown++;
+    const cls = d.status==='Uploaded' ? 'color:var(--good)' : 
+
+'color:var(--bad)';
+    return `<tr><td>${d.date}</td><td style="font-weight:800;
+
+${cls}">${d.status}</td></tr>`;
+  }).join('');
+
+  document.getElementById('ceoMpkUp').innerText = mpkUp;
+  document.getElementById('ceoMpkDown').innerText = mpkDown;
+  document.getElementById('ceoHydUp').innerText = hydUp;
+  document.getElementById('ceoHydDown').innerText = hydDown;
+  document.getElementById('ceoMpkBody').innerHTML = mpkRows || 
+
+'<tr><td colspan="2" style="text-align:center;color:var(--
+
+muted);padding:16px;font-weight:600;">No entries</td></tr>';
+  document.getElementById('ceoHydBody').innerHTML = hydRows || 
+
+'<tr><td colspan="2" style="text-align:center;color:var(--
+
+muted);padding:16px;font-weight:600;">No entries</td></tr>';
+}
+
+/* ── Notification system ── */
+function buildNotifications() {
+  const alerts = [];
+  const branchIds = ['tab1','tab2','tab3','tab4'];
+  branchIds.forEach(id => {
+    initStoreForBranch(id);
+    const store = globalDataStore[id] || {};
+    const bName = BRANCH_NAMES[id] || id;
+    const major = (store.major||[]).reduce((s,e)=>s+(e.qty||
+
+0),0);
+    const cust = (store.cust||[]).reduce((s,e)=>s+(e.qty||
+
+0),0);
+    const maint = (store.maint||[]).reduce((s,e)=>s+(e.qty||
+
+0),0);
+    if (major > 10) alerts.push({ type:'critical', msg:`
+
+${bName}: ${major} major complaints logged this period.` });
+    else if (major > 5) alerts.push({ type:'warn', msg:`
+
+${bName}: ${major} major complaints — monitor closely.` });
+    if (cust > 8) alerts.push({ type:'critical', msg:`
+
+${bName}: ${cust} unsatisfied customers recorded.` });
+    if (maint > 5) alerts.push({ type:'warn', msg:`${bName}: 
+
+${maint} maintenance issues (AC/Lift/System) pending.` });
+  });
+
+  // Facebook unuploaded
+  const mpkDown = getFbData('mpk').filter
+
+(d=>d.status==='Unuploaded').length;
+  const hydDown = getFbData('hyd').filter
+
+(d=>d.status==='Unuploaded').length;
+  if (mpkDown > 0) alerts.push({ type:'warn', msg:`Facebook 
+
+MPK: ${mpkDown} price list(s) not uploaded.` });
+  if (hydDown > 0) alerts.push({ type:'warn', msg:`Facebook 
+
+HYD: ${hydDown} price list(s) not uploaded.` });
+
+  if (alerts.length === 0) alerts.push({ type:'info', msg:'All 
+
+systems nominal. No critical alerts at this time.' });
+
+  const badge = document.getElementById('notifCount');
+  const list = document.getElementById('notifList');
+  const ts = document.getElementById('notifTimestamp');
+  if (badge) badge.innerText = alerts.filter
+
+(a=>a.type==='critical').length || alerts.length;
+  if (ts) ts.innerText = new Date().toLocaleTimeString([], 
+
+{hour:'2-digit',minute:'2-digit'});
+  if (list) {
+    list.innerHTML = alerts.map(a => `<div class="notif-item">
+      <span class="notif-dot ${a.type}"></span>
+      <span>${a.msg}</span>
+    </div>`).join('') || '<div class="notif-item">No 
+
+alerts.</div>';
+  }
+}
+
+function toggleNotifDropdown() {
+  const dd = document.getElementById('notifDropdown');
+  if (dd) {
+    dd.classList.toggle('open');
+    if (dd.classList.contains('open')) buildNotifications();
+  }
+}
+
+// Close notif dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('notifBellWrap');
+  if (wrap && !wrap.contains(e.target)) {
+    const dd = document.getElementById('notifDropdown');
+    if (dd) dd.classList.remove('open');
+  }
+});
+
+// Refresh notifications periodically
+setInterval(buildNotifications, 60000);
+
+// ─── patch renderExecOverview to also refresh notifs ───
+const _origRenderExec = renderExecOverview;
+window.renderExecOverview = function() {
+  _origRenderExec();
+  buildNotifications();
+};
 
 boot();
 </script>
