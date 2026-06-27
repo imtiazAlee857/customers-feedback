@@ -3375,6 +3375,7 @@ store's fault. `;
             insightEl.innerHTML = msg;
         }
     }
+    if (typeof buildNotifications === 'function') buildNotifications();
 }
 
 
@@ -3645,11 +3646,7 @@ document.addEventListener('click', function(e) {
 setInterval(buildNotifications, 60000);
 
 // --- patch renderExecOverview to also refresh notifs ---
-const _origRenderExec = renderExecOverview;
-window.renderExecOverview = function() {
-  _origRenderExec();
-  buildNotifications();
-};
+// (buildNotifications called via setInterval above; no patch needed to avoid infinite recursion)
 
 boot();
 </script>
