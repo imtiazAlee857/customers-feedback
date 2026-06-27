@@ -1405,9 +1405,7 @@ weight:700; padding:7px 12px; border-radius:20px;
 .role-badge.is-admin{ background:#f4e6c2; color:var(--gold-
 
 deep); border:1px solid var(--gold-deep); }
-.role-badge.is-ceo{ background:#1b2436; color:var(--gold); 
-
-border:1px solid var(--gold-deep); }
+.role-badge.is-ceo{ display:none!important; }
 .role-badge .dot{ width:7px; height:7px; border-radius:50%; 
 
 background:var(--good); display:inline-block; }
@@ -1450,7 +1448,7 @@ weight:700; margin:-2px 0 12px; padding:8px 12px;
 
 solid var(--gold);
 }
-body.role-ceo .ceo-meta-strip{ display:flex; }
+body.role-ceo .ceo-meta-strip{ display:none!important; }
 
 /* ---------- Snapshot export modal ---------- */
 .snapshot-modal{
@@ -1532,7 +1530,7 @@ Operations</span>
 
     <button type="button" class="btn-ceo-login" 
 
-onclick="loginAsCeo()">&#128202; Login as CEO</button>
+onclick="loginAsCeo()">Login as CEO</button>
 
     <button type="button" class="staff-login-toggle" 
 
@@ -1583,7 +1581,7 @@ browser's
 -->
 <div id="snapshotModal" class="snapshot-modal hidden">
   <div class="snapshot-card">
-    <h2>&#128230; Export Data Snapshot (Lock into Code)</h2>
+    <h2>Export Data Snapshot (Lock into Code)</h2>
     <p>
       Yeh code block neeche generate hua hai, jis main aap ka 
 
@@ -1631,16 +1629,14 @@ Operations</span>
 id="roleBadgeAdmin"><span class="dot"></span> Admin Access 
 
 &middot; Full Data Entry</span>
-    <span class="role-badge is-ceo hidden" 
+    <span class="role-badge is-ceo hidden" id="roleBadgeCeo" 
 
-id="roleBadgeCeo"><span class="dot"></span> CEO Access 
-
-&middot; View Only</span>
+style="display:none!important;"></span>
     <button class="btn-export-snapshot admin-only-ui hidden" 
 
-id="exportSnapBtn" onclick="openSnapshotModal()">&#128230; 
+id="exportSnapBtn" onclick="openSnapshotModal()">Lock Data 
 
-Lock Data Into Code</button>
+Into Code</button>
     <div class="notif-bell-wrap" onclick="toggleNotifDropdown
 
 ()" id="notifBellWrap">
@@ -1657,7 +1653,7 @@ xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-
 0H9"/></svg>
       <span class="notif-badge" id="notifCount">0</span>
       <div class="notif-dropdown" id="notifDropdown">
-        <div class="notif-header"><span>🔔 Live 
+        <div class="notif-header"><span>Live 
 
 Alerts</span><span id="notifTimestamp" style="font-size:10px; 
 
@@ -1674,18 +1670,14 @@ opacity:.8;"></span></div>
 
 style="width:7px;height:7px;border-radius:50%;background:var
 
-(--good);display:inline-block;"></span> <span 
+(--good);display:inline-block;"></span> <span id="ceoMetaText" 
 
-id="ceoMetaText">Executive view &middot; read-only &middot; 
-
-updated live as branches log data</span></div>
+style="display:none;"></span></div>
 
   <div class="tab-buttons">
     <button class="tab-btn active exec-tab-btn" 
 
-onclick="openTab(event, 'tabExec')">&#128202; CEO 
-
-Overview</button>
+onclick="openTab(event, 'tabExec')">CEO Overview</button>
     <button class="tab-btn admin-only-tab" onclick="openTab
 
 (event, 'tab1')">Branch 1</button>
@@ -1705,7 +1697,7 @@ onclick="openTab(event, 'tabSubComplaints')">Sub
 Complaints</button>
     <button class="tab-btn exec-tab-btn" 
 
-onclick="openCeoBranches()" id="btnCeoBranches">🏢 All Branches 
+onclick="openCeoBranches()" id="btnCeoBranches">All Branches 
 
 Details</button>
     <button class="tab-btn admin-only-tab" 
@@ -1925,7 +1917,7 @@ deep);">0</div></div>
         </div>
 
         <div class="exec-card" style="margin-bottom:14px;">
-          <h3>&#127942; Branch Leaderboard</h3>
+          <h3> Branch Leaderboard</h3>
           <div id="execLeaderboard" class="exec-
 
 leaderboard"></div>
@@ -1948,7 +1940,7 @@ leaderboard"></div>
 between; align-items:center; margin-bottom:12px; flex-
 
 wrap:wrap; gap:8px;">
-            <h3 style="margin:0;">&#9888; Top Recurring Issues 
+            <h3 style="margin:0;"> Top Recurring Issues 
 
 Needing Attention</h3>
             <div class="exec-risk-legend">
@@ -1976,21 +1968,19 @@ style="width:44%;">Reported Reasons</th></tr></thead>
           <div id="execTopIssuesEmpty" class="empty-state 
 
 hidden" style="padding:24px 10px;">
-            <div class="big">&#10003;</div>No major recurring 
+            <div class="big"></div>No major recurring issues 
 
-issues detected for this period.
+detected for this period.
           </div>
         </div>
 
         <div class="exec-grid-2" style="margin-top:14px;">
           <div class="exec-card">
-            <h3>&#128202; Month-by-Month Trend</h3>
+            <h3> Month-by-Month Trend</h3>
             <div id="execTrendChart"></div>
           </div>
           <div class="exec-card">
-            <h3>&#128204; Action Priorities for 
-
-Management</h3>
+            <h3> Action Priorities for Management</h3>
             <ol class="exec-action-list" 
 
 id="execActionList"></ol>
@@ -2024,8 +2014,8 @@ Auto-Generated &middot; Feedback Intelligence Suite</div>
       <div class="ceo-nav-bar">
         <button class="btn-ceo-home" 
 
-onclick="closeCeoBranches()">🏠 CEO Overview</button>
-        <span class="ceo-breadcrumb">📊 All Branches 
+onclick="closeCeoBranches()">CEO Overview</button>
+        <span class="ceo-breadcrumb">All Branches 
 
 Details</span>
       </div>
@@ -2063,7 +2053,7 @@ id="branchSelectorGrid"></div>
 onclick="showBranchSelector()">← Back</button>
         <button class="btn-ceo-home" 
 
-onclick="closeCeoBranches()">🏠 CEO Overview</button>
+onclick="closeCeoBranches()">CEO Overview</button>
         <span class="ceo-breadcrumb" 
 
 id="catViewBreadcrumb">Branch → Categories</span>
@@ -2094,7 +2084,7 @@ strip"></div>
 Back</button>
         <button class="btn-ceo-home" 
 
-onclick="closeCeoBranches()">🏠 CEO Overview</button>
+onclick="closeCeoBranches()">CEO Overview</button>
         <span class="ceo-breadcrumb" 
 
 id="drillBreadcrumb">Branch → Category → Complaints</span>
@@ -2145,9 +2135,7 @@ this category for the selected period.
             <span id="drillTotalLabel" style="font-weight:800; 
 
 font-size:13px;">Total: 0 complaints</span>
-            <span class="days-counter-badge" 
-
-id="drillDaysLabel">0 DAYS DATA</span>
+            
           </div>
           <div class="footer-line">CEO Complaint Detail View · 
 
@@ -2164,7 +2152,7 @@ Read-Only · Feedback Intelligence Suite</div>
 onclick="showBranchSelector()">← Back</button>
         <button class="btn-ceo-home" 
 
-onclick="closeCeoBranches()">🏠 CEO Overview</button>
+onclick="closeCeoBranches()">CEO Overview</button>
         <span class="ceo-breadcrumb">All Branches → Facebook 
 
 Page Status</span>
@@ -2181,7 +2169,7 @@ color:#fff;">Social</span>
       </div>
       <div class="exec-grid-2">
         <div class="exec-card">
-          <h3>📘 MPK Page</h3>
+          <h3>MPK Page</h3>
           <div class="analytics-grid" style="grid-template-
 
 columns:1fr 1fr; margin-bottom:14px;">
@@ -2204,7 +2192,7 @@ style="color:var(--bad);">0</div></div>
           </table>
         </div>
         <div class="exec-card">
-          <h3>📘 HYD Page</h3>
+          <h3>HYD Page</h3>
           <div class="analytics-grid" style="grid-template-
 
 columns:1fr 1fr; margin-bottom:14px;">
@@ -2415,7 +2403,7 @@ Qty</th>
         </table>
 
         <div id="subEmptyState" class="empty-state hidden">
-          <div class="big">&#10003;</div>
+          <div class="big"></div>
           No repeated complaints found across branches at the 
 
 selected threshold.<br>
@@ -2460,9 +2448,9 @@ than a single store's execution problem.</p>
         <div class="percentage-section" style="margin-
 
 top:18px;">
-          <h3>&#128197; Same Complaint, Same Window &mdash; 
+          <h3> Same Complaint, Same Window &mdash; <span 
 
-<span id="subWindowLabel">20</span>-Day Branch Clusters</h3>
+id="subWindowLabel">20</span>-Day Branch Clusters</h3>
           <p style="font-size:11.5px; color:var(--muted); 
 
 font-weight:600; margin:-2px 0 12px; line-height:1.6;">
@@ -2477,7 +2465,7 @@ branch, on which date.
           <div id="subClusterEmpty" class="empty-state 
 
 hidden">
-            <div class="big">&#128077;</div>
+            <div class="big"></div>
             No same-window cross-branch clusters found at this 
 
 threshold &amp; date window.
@@ -2820,6 +2808,7 @@ function attemptAdminLogin(evt) {
     if (u === ADMIN_USERNAME && p === ADMIN_PASSWORD) {
         errEl.classList.add('hidden');
         sessionStorage.setItem('fis_role', 'admin');
+        localStorage.setItem('fis_role_persist', 'admin');
         enterApp('admin');
     } else {
         errEl.classList.remove('hidden');
@@ -2829,6 +2818,7 @@ function attemptAdminLogin(evt) {
 
 function loginAsCeo() {
     sessionStorage.setItem('fis_role', 'ceo');
+    localStorage.setItem('fis_role_persist', 'ceo');
     enterApp('ceo');
 }
 
@@ -2882,11 +2872,18 @@ btn')].forEach(b => b.classList.remove('active'));
 
 function logoutUser() {
     sessionStorage.removeItem('fis_role');
+    localStorage.removeItem('fis_role_persist');
     location.reload();
 }
 
 function boot() {
-    const savedRole = sessionStorage.getItem('fis_role');
+    // Try sessionStorage first, then localStorage as fallback 
+
+(for GitHub Pages)
+    let savedRole = sessionStorage.getItem('fis_role');
+    if (!savedRole) {
+        savedRole = localStorage.getItem('fis_role_persist');
+    }
     if (savedRole === 'admin' || savedRole === 'ceo') {
         enterApp(savedRole);
     }
@@ -3279,9 +3276,7 @@ align:center;">Del</th></tr></thead>
 
 (Aggregated): <span id="monthlyTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="monthlyDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Daily Operations Log &middot; 
 
 Grouped by Product</div>
@@ -3361,9 +3356,7 @@ text-align:center;">Del</th></tr></thead>
 
 Complaints: <span id="majorTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="majorDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Monthly Grievance Audit 
 
 &middot; Confidential</div>
@@ -3443,9 +3436,7 @@ text-align:center;">Del</th></tr></thead>
 
 Complaints: <span id="demandTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="demandDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Live Demand Tracking &middot; 
 
 Confidential</div>
@@ -3525,9 +3516,7 @@ text-align:center;">Del</th></tr></thead>
 
 Complaints: <span id="priceTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="priceDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Price Compliance Audit &middot; 
 
 Confidential</div>
@@ -3607,9 +3596,7 @@ text-align:center;">Del</th></tr></thead>
 
 Satisfaction Complaints: <span id="custTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="custDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Customer Matrix &middot; 
 
 Confidential</div>
@@ -3689,9 +3676,7 @@ text-align:center;">Del</th></tr></thead>
 
 Complaints: <span id="staffTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="staffDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Staff Performance Control 
 
 &middot; Confidential</div>
@@ -3771,9 +3756,7 @@ align:center;">Del</th></tr></thead>
 
 Complaints: <span id="groceryTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="groceryDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Grocery Dept Audit &middot; 
 
 Confidential</div>
@@ -3853,9 +3836,7 @@ align:center;">Del</th></tr></thead>
 
 Complaints: <span id="freshoTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="freshoDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Fresho Quality Logs &middot; 
 
 Confidential</div>
@@ -3935,9 +3916,7 @@ text-align:center;">Del</th></tr></thead>
 
 Complaints: <span id="billTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="billDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Counter Transaction Logs 
 
 &middot; Confidential</div>
@@ -4017,9 +3996,7 @@ text-align:center;">Del</th></tr></thead>
 
 Maintenance Complaints: <span id="maintTotalCount_
 
-${id}">0</span></span><span class="days-counter-badge" 
-
-id="maintDaysCount_${id}">0 DAYS DATA</span></div>
+${id}">0</span></span></div>
       <div class="footer-line">Maintenance System Logs 
 
 &middot; Confidential</div>
@@ -4365,9 +4342,6 @@ ${id}`);
     const totalSpan = document.getElementById
 
 (`monthlyTotalCount_${id}`);
-    const daysSpan = document.getElementById
-
-(`monthlyDaysCount_${id}`);
     if(!tbody) return;
 
     const monthFilterEl = document.getElementById
@@ -4392,9 +4366,6 @@ matchesMonth(item.date, monthVal));
     const uniqueDates = [...new Set(filteredItems.map(item => 
 
 item.date))];
-    if (daysSpan) daysSpan.innerText = `${uniqueDates.length} 
-
-DAYS DATA`;
 
     const productMap = new Map();
     for(let entry of filteredItems) {
@@ -4481,9 +4452,6 @@ TableBody_${id}`);
         const counter = document.getElementById(`${cat}
 
 TotalCount_${id}`);
-        const daysSpan = document.getElementById(`${cat}
-
-DaysCount_${id}`);
         if(!body) return;
 
         const monthFilterEl = document.getElementById(`${cat}
@@ -4511,9 +4479,6 @@ parseCustomDate(b.date));
         const uniqueDates = [...new Set(items.map(item => 
 
 item.date))];
-        if (daysSpan) daysSpan.innerText = `
-
-${uniqueDates.length} DAYS DATA`;
 
         body.innerHTML = "";
         let total = 0;
@@ -5987,31 +5952,31 @@ const BRANCH_COLORS = { tab1:'#d04ee8', tab2:'#3b82f6',
 tab3:'#22c55e', tab4:'#f59e0b' };
 
 const CAT_META = {
-  monthly:  { icon:'📋', label:'Monthly Complaints',       
+  monthly:  { icon:'', label:'Monthly Complaints',       
 
 cls:'cat-monthly',  color:'var(--monthly-color)' },
-  major:    { icon:'🚨', label:'Major Complaints',         
+  major:    { icon:'', label:'Major Complaints',         
 
 cls:'cat-major',    color:'var(--major-color)' },
-  staff:    { icon:'👥', label:'Staff Complaints',         
+  staff:    { icon:'', label:'Staff Complaints',         
 
 cls:'cat-staff',    color:'var(--staff-color)' },
-  price:    { icon:'💰', label:'Price Tags Issues',        
+  price:    { icon:'', label:'Price Tags Issues',        
 
 cls:'cat-price',    color:'var(--price-color)' },
-  demand:   { icon:'📦', label:'Demand & Stock Short',     
+  demand:   { icon:'', label:'Demand & Stock Short',     
 
 cls:'cat-demand',   color:'var(--demand-color)' },
-  fresho:   { icon:'🥦', label:'Fresho Complaints',        
+  fresho:   { icon:'', label:'Fresho Complaints',        
 
 cls:'cat-fresho',   color:'var(--fresh-color)' },
-  maint:    { icon:'🔧', label:'Maintenance Complaints',   
+  maint:    { icon:'', label:'Maintenance Complaints',   
 
 cls:'cat-maint',    color:'var(--maint-color)' },
-  cust:     { icon:'😊', label:'Customer Satisfaction',    
+  cust:     { icon:'', label:'Customer Satisfaction',    
 
 cls:'cat-cust',     color:'var(--cust-color)' },
-  bill:     { icon:'🧾', label:'Billing Complaints',       
+  bill:     { icon:'', label:'Billing Complaints',       
 
 cls:'cat-bill',     color:'var(--bill-color)' },
 };
@@ -6098,7 +6063,7 @@ Stable</span>';
     return `<div class="branch-select-card" 
 
 onclick="ceoDrillBranch('${id}')">
-      <div class="bsc-icon">🏪</div>
+      <div class="bsc-icon"></div>
       <div class="bsc-name">Branch ${bNum}</div>
       <div class="bsc-count">${total} total · ${major} 
 
@@ -6195,7 +6160,7 @@ cust','bill'];
     return `<div class="cat-card ${meta.cls}" 
 
 onclick="ceoDrillCategory('${tabId}','${cat}')">
-      <div class="cc-icon">${meta.icon}</div>
+      
       <div class="cc-name">${meta.label}</div>
       <div class="cc-count" style="color:${meta.color};">
 
@@ -6258,9 +6223,6 @@ ${uniqueDates}</b></span>`;
   document.getElementById('drillTotalLabel').innerText = 
 
 'Total: ' + total + ' complaints';
-  document.getElementById('drillDaysLabel').innerText = 
-
-uniqueDates + ' DAYS DATA';
 
   const tbody = document.getElementById('ceoDrillTableBody');
   const empty = document.getElementById('ceoDrillEmpty');
